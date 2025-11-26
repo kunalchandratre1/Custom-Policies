@@ -1,0 +1,20 @@
+{   
+    "mode": "All",    
+    "policyRule": {
+        "if":{
+            "allOf":[
+                {
+                    "field": "Microsoft.Storage/storageAccounts/managementPolicies/policy.rules[*].definition.filters.prefixMatch[*]",
+                    "exists": "false"
+                },
+                {
+                    "field": "Microsoft.Storage/storageAccounts/managementPolicies/policy.rules[*].definition.filters.blobIndexMatch[*]",
+                    "exists": "false"
+                }
+            ]
+        },
+        "then": {
+        "effect": "deny"
+        }
+    }
+}
